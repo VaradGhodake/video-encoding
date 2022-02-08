@@ -16,9 +16,7 @@ for rate in "${rates[@]}"
 
         ffmpeg -y -i $1 -c:v libx264 -vf scale=640:480 -b:v $rate -pass 1 -an -f null /dev/null && ffmpeg -i $1 -c:v libx264 -vf scale=640:480 -b:v $rate -pass 2 video_ladder_${rate}_640_480.mp4
 
-        if [ "${rate}" != "750k" ] && [ "${rate}" != "2000k" ]; then
-            ffmpeg -y -i $1 -c:v libx264 -vf scale=1280:720 -b:v $rate -pass 1 -an -f null /dev/null && ffmpeg -i $1 -c:v libx264 -vf scale=1280:720 -b:v $rate -pass 2 video_ladder_${rate}_1280_720.mp4
-        fi
+        ffmpeg -y -i $1 -c:v libx264 -vf scale=1280:720 -b:v $rate -pass 1 -an -f null /dev/null && ffmpeg -i $1 -c:v libx264 -vf scale=1280:720 -b:v $rate -pass 2 video_ladder_${rate}_1280_720.mp4
  
    done
 
