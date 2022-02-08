@@ -1,3 +1,5 @@
+# TO DO: Make this generic
+
 ffmpeg -i big_buck_bunny_1080p24.y4m -c:v libvpx-vp9 -vf scale=1280:720 -b:v 250k -pass 1 -an -f null /dev/null && ffmpeg -i big_buck_bunny_1080p24.y4m -c:v libvpx-vp9 -vf scale=1280:720 -b:v 250k -pass 2 -c:a libopus video_vp9_two_pass_250k_1280_720.webm
 
 echo "Done. video 1"
